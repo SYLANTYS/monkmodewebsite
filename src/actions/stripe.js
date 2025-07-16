@@ -1,3 +1,5 @@
+"use server";
+
 import { stripe } from "@/lib/stripe";
 
 export const subscribeAction = async ({ userId }) => {

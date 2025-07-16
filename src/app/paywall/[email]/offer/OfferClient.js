@@ -3,12 +3,14 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useRouter } from "next/navigation";
+import { subscribeAction } from "@/actions/stripe";
 
 export default function OfferClient({ email }) {
   const router = useRouter();
 
-  const handleAccept = () => {
-    alert("Proceed to yearly deal checkout");
+  const handleAccept = async () => {
+    const url = await subscribeAction({ userId: email });
+    router.push(url);
   };
 
   const handleSkip = () => {
