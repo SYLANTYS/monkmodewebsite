@@ -36,6 +36,6 @@ export default async function PaywallPage({ params }) {
     return <UserLoadingFallback />;
   }
 
-  console.log("Supabase Auth User:", user);
-  return <PaywallClient email={email} user={user} />;
+  console.log("Supabase Auth User:", user.id);
+  return <PaywallClient email={email} userId={user.id} />;
 }

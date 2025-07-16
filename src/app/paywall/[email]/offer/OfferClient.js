@@ -5,16 +5,17 @@ import Footer from "@/components/Footer";
 import { useRouter } from "next/navigation";
 import { subscribeAction } from "@/actions/stripe";
 
-export default function OfferClient({ email }) {
+export default function OfferClient({ email, userId }) {
   const router = useRouter();
 
   const handleAccept = async () => {
-    const url = await subscribeAction({ userId: email });
+    const url = await subscribeAction({ id: userId, email: email, product: 2 });
     router.push(url);
   };
 
-  const handleSkip = () => {
-    alert("Proceed to monthly deal checkout");
+  const handleSkip = async () => {
+    const url = await subscribeAction({ id: userId, email: email, product: 0 });
+    router.push(url);
   };
 
   return (

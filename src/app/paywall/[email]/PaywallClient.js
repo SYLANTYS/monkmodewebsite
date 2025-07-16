@@ -1,19 +1,33 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { useRouter } from "next/navigation";
+import { subscribeAction } from "@/actions/stripe";
 
-export default function PaywallClient({ email }) {
+export default function PaywallClient({ email, userId }) {
   const [plan, setPlan] = useState("yearly");
   const router = useRouter();
 
+  const handleYearly = async () => {
+    const url = await subscribeAction({
+      id: userId,
+      email: email,
+      product: 1,
+    });
+    router.push(url);
+  };
+
+  const handleMonthly = () => {
+    router.push(`/paywall/${encodeURIComponent(email)}/offer`);
+  };
+
   const handleContinue = () => {
     if (plan === "monthly") {
-      router.push(`/paywall/${encodeURIComponent(email)}/offer`);
+      handleMonthly();
     } else {
-      alert("Proceed to yearly checkout");
+      handleYearly();
     }
   };
 
