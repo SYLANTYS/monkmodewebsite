@@ -36,6 +36,5 @@ export default async function OfferPage({ params }) {
     return <UserLoadingFallback />;
   }
 
-  console.log("Supabase Auth User:", user.id);
   return <OfferClient email={email} userId={user.id} />;
 }

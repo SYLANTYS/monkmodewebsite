@@ -2,43 +2,94 @@
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Discount from "@/components/Discount";
 import { useRouter } from "next/navigation";
 import { subscribeAction } from "@/actions/stripe";
+import { useState } from "react";
 
 export default function OfferClient({ email, userId }) {
   const router = useRouter();
+  const [loadingAccept, setLoadingAccept] = useState(false);
+  const [loadingSkip, setLoadingSkip] = useState(false);
 
   const handleAccept = async () => {
-    const url = await subscribeAction({ id: userId, email: email, product: 2 });
-    router.push(url);
+    setLoadingAccept(true);
+    try {
+      const url = await subscribeAction({
+        id: userId,
+        email: email,
+        product: 2,
+      });
+      router.push(url);
+    } catch (err) {
+      console.error("Accept error:", err);
+    }
   };
 
   const handleSkip = async () => {
-    const url = await subscribeAction({ id: userId, email: email, product: 0 });
-    router.push(url);
+    setLoadingSkip(true);
+    try {
+      const url = await subscribeAction({
+        id: userId,
+        email: email,
+        product: 0,
+      });
+      router.push(url);
+    } catch (err) {
+      console.error("Skip error:", err);
+    }
   };
 
   return (
     <div className="bg-black text-white min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-1 flex items-center justify-center px-4">
-        <div className="max-w-md w-full flex flex-col gap-8 text-center">
-          <h1 className="text-2xl font-bold">Limited Time Offer</h1>
-          <p>Get the yearly plan for just $1.25 per month!</p>
-
-          <button
-            onClick={handleAccept}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl py-2 cursor-pointer"
+      <main className="flex-1 flex items-center justify-center p-4">
+        <div className="max-w-md w-full flex flex-col gap-4 text-center">
+          <h1
+            className="text-5xl font-bold tracking-wide"
+            style={{ wordSpacing: "0.2rem" }}
           >
-            Continue with Deal
-          </button>
+            One Time Offer
+          </h1>
+          <p className="text-xl text-gray-300 mb-4">
+            You will never see this again
+          </p>
 
-          <button
-            onClick={handleSkip}
-            className="w-full border border-gray-500 hover:bg-zinc-900 text-white rounded-xl py-2 mt-4 cursor-pointer"
-          >
-            Skip Offer — Use Monthly
-          </button>
+          <Discount />
+
+          <div className="flex flex-col mt-4">
+            <button
+              onClick={handleAccept}
+              disabled={loadingAccept}
+              className={`w-full rounded-xl py-3 font-medium transition ${
+                loadingAccept
+                  ? "bg-white text-black opacity-70 cursor-not-allowed"
+                  : "bg-white text-black hover:bg-gray-200 cursor-pointer"
+              }`}
+            >
+              {loadingAccept ? (
+                <span className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin inline-block" />
+              ) : (
+                "Claim your limited offer now!"
+              )}
+            </button>
+
+            <button
+              onClick={handleSkip}
+              disabled={loadingSkip}
+              className={`w-full border border-gray-500 rounded-xl py-3 mt-4 font-medium transition ${
+                loadingSkip
+                  ? "bg-zinc-900 text-white opacity-70 cursor-not-allowed"
+                  : "hover:bg-zinc-900 text-white cursor-pointer"
+              }`}
+            >
+              {loadingSkip ? (
+                <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin inline-block" />
+              ) : (
+                "Skip Offer — Use Monthly"
+              )}
+            </button>
+          </div>
         </div>
       </main>
       <Footer />

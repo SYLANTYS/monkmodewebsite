@@ -19,33 +19,27 @@ export async function POST(req) {
 
   const data = event.data.object;
 
-  // ✅ Checkout completed → Cancel other subs + activate new one
-  if (event.type === "checkout.session.completed") {
+  // ✅ Checkout completed → activate subscription if paid
+  if (
+    event.type === "checkout.session.completed" &&
+    data.payment_status === "paid"
+  ) {
     const subscriptionId = data.subscription;
-    const customerId = data.customer;
 
-    if (subscriptionId && customerId) {
-      // Cancel all other active subscriptions for this customer
-      const subs = await stripe.subscriptions.list({
-        customer: customerId,
-        status: "active",
-        limit: 100,
-      });
-
-      for (const sub of subs.data) {
-        if (sub.id !== subscriptionId) {
-          await stripe.subscriptions.del(sub.id);
-        }
-      }
-
-      // Fetch the new subscription to get metadata
-      const newSub = await stripe.subscriptions.retrieve(subscriptionId);
-      const { id, email } = newSub.metadata || {};
+    if (subscriptionId) {
+      const subscription = await stripe.subscriptions.retrieve(subscriptionId);
+      const { id, email } = subscription.metadata || {};
+      const trialEnd = subscription.trial_end;
 
       if (id && email) {
         await supabaseAdmin
           .from("profiles")
-          .update({ subscription: true })
+          .update({
+            subscription: true,
+            trial_deadline: new Date(
+              (trialEnd ?? Math.floor(Date.now() / 1000)) * 1000
+            ),
+          })
           .eq("id", id)
           .eq("email", email);
       }
@@ -55,11 +49,12 @@ export async function POST(req) {
   // ❌ Subscription became inactive or was deleted
   if (
     event.type === "customer.subscription.deleted" ||
-    (event.type === "customer.subscription.updated" && data.status !== "active")
+    (event.type === "customer.subscription.updated" &&
+      data.status !== "active" &&
+      data.status !== "trialing")
   ) {
     const { id, email } = data.metadata || {};
 
-    // Fallback: if metadata is missing, fetch subscription to get it
     if (!id || !email) {
       const subscription = await stripe.subscriptions.retrieve(data.id);
       const meta = subscription.metadata || {};

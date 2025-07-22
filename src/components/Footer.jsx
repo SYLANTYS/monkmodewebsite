@@ -36,6 +36,11 @@ export default function Footer() {
           <h3 className="text-base font-semibold text-white mb-4">Company</h3>
           <ul className="space-y-2 text-gray-400">
             <li>
+              <a href="/help" className="hover:text-gray-200">
+                Help
+              </a>
+            </li>
+            <li>
               <a
                 href="mailto:psylantys@gmail.com"
                 className="hover:text-gray-200"

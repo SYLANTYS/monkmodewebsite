@@ -29,6 +29,7 @@ export const subscribeAction = async ({ id, email, product }) => {
         id,
         email,
       },
+      trial_period_days: 3,
     },
   });
 
