@@ -48,7 +48,7 @@ export default function Home() {
 
             <p className="text-gray-400 text-base text-center max-w-sm">
               If you purchased your subscription through <strong>Stripe</strong>
-              , enter the email you used to subscribe. We'll redirect you to
+              , enter the email you used to subscribe. We will redirect you to
               manage or cancel your plan.
             </p>
 
