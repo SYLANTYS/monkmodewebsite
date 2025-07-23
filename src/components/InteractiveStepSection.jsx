@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useSwipeable } from "react-swipeable";
 import Image from "next/image";
 
 const steps = [
@@ -29,11 +30,19 @@ const steps = [
 export default function InteractiveStepSection() {
   const [activeStep, setActiveStep] = useState(0);
 
+  const swipeHandlers = useSwipeable({
+    onSwipedLeft: () => setActiveStep((prev) => (prev + 1) % steps.length),
+    onSwipedRight: () =>
+      setActiveStep((prev) => (prev - 1 + steps.length) % steps.length),
+    preventScrollOnSwipe: true,
+    trackMouse: true, // allows swiping with mouse drag
+  });
+
   return (
     <section className="py-16 text-white px-6">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         {/* Image and Dots */}
-        <div className="relative flex flex-col items-center">
+        <div className="relative flex flex-col items-center" {...swipeHandlers}>
           {steps.map((step, idx) => (
             <Image
               key={idx}
