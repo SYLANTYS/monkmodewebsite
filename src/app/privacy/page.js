@@ -25,7 +25,7 @@ export default function PrivacyPage() {
         <p className="mb-4">
           We collect your <strong>email address</strong> and answers to{" "}
           <strong>survey questions</strong> within the app. We also store
-          whether you're currently subscribed and the date your{" "}
+          whether you&apos;re currently subscribed and the date your{" "}
           <strong>free trial ends</strong>.
         </p>
         <p className="mb-6">

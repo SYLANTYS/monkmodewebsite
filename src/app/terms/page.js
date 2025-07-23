@@ -20,9 +20,9 @@ export default function TermsPage() {
 
         <h2 className="text-2xl font-semibold mt-10 mb-4">Acknowledgment</h2>
         <p className="mb-4">
-          These Terms govern your access to and use of MonkMode ("the Service")
-          provided by MonkMode. By creating an account or using the app, you
-          agree to be bound by these Terms.
+          These Terms govern your access to and use of MonkMode (&quot;the
+          Service&quot;) provided by MonkMode. By creating an account or using
+          the app, you agree to be bound by these Terms.
         </p>
         <p className="mb-6">
           The Service is available only to individuals over the age of 18. If
@@ -79,10 +79,10 @@ export default function TermsPage() {
           lower.
         </p>
         <p className="mb-6">
-          The Service is provided "as is" and "as available" without warranty of
-          any kind. MonkMode is not responsible for bugs, errors, or
-          interruptions and does not guarantee any specific functionality or
-          uptime.
+          The Service is provided &quot;as is&quot; and &quot;as available&quot;
+          without warranty of any kind. MonkMode is not responsible for bugs,
+          errors, or interruptions and does not guarantee any specific
+          functionality or uptime.
         </p>
 
         <h2 className="text-2xl font-semibold mt-10 mb-4">Governing Law</h2>
