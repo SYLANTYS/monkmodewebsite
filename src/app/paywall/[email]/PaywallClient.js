@@ -70,7 +70,7 @@ export default function PaywallClient({ email, userId }) {
                   <div className="flex w-full justify-between items-center">
                     <div className="text-start">
                       <h2 className="text-xl font-semibold">Monthly</h2>
-                      <p className="text-gray-300">$5.99/month</p>
+                      <p className="text-gray-300">$5.99/mo</p>
                     </div>
                     {plan === "monthly" ? (
                       <CheckCircleIcon size={32} weight="fill" />
@@ -89,7 +89,7 @@ export default function PaywallClient({ email, userId }) {
                 onClick={() => setPlan("yearly")}
               >
                 {/* Top-left badge */}
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-black text-xs font-bold px-4 py-1 rounded-full">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-black md:text-xs text-[8px] font-bold px-4 py-1 rounded-full">
                   3 DAYS FREE
                 </div>
 
@@ -97,7 +97,7 @@ export default function PaywallClient({ email, userId }) {
                   <div className="flex w-full justify-between items-center">
                     <div className="text-start">
                       <h2 className="text-xl font-semibold">Yearly</h2>
-                      <p className="text-gray-300">$1.67/mo</p>
+                      <p className="text-gray-300">($1.67/mo)</p>
                     </div>
                     {plan === "yearly" ? (
                       <CheckCircleIcon size={32} weight="fill" />

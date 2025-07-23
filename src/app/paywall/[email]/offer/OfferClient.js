@@ -43,7 +43,7 @@ export default function OfferClient({ email, userId }) {
   return (
     <div className="bg-black text-white min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-1 flex items-center justify-center p-4">
+      <main className="flex-1 flex items-center justify-center p-3">
         <div className="max-w-md w-full flex flex-col gap-4 text-center">
           <h1
             className="text-5xl font-bold tracking-wide"
@@ -51,13 +51,15 @@ export default function OfferClient({ email, userId }) {
           >
             One Time Offer
           </h1>
-          <p className="text-xl text-gray-300 mb-4">
-            You will never see this again
-          </p>
+          <p className="text-xl text-gray-300">You will never see this again</p>
 
           <Discount />
 
-          <div className="flex flex-col mt-4">
+          <p className="text-gray-400 text-sm">
+            3 days free, then $14.99 per year ($1.25/mo)
+          </p>
+
+          <div className="flex flex-col">
             <button
               onClick={handleAccept}
               disabled={loadingAccept}

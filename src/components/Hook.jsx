@@ -24,9 +24,9 @@ export default function Hook() {
         <Image
           src="/images/chatview.png"
           alt="Chat View"
-          width={400}
-          height={400}
-          className="pointer-events-none select-none"
+          width={2000}
+          height={2000}
+          className="pointer-events-none select-none w-[400px]"
           draggable={false}
         />
 
@@ -42,9 +42,9 @@ export default function Hook() {
         <Image
           src="/images/canvasview.png"
           alt="Canvas View"
-          width={400}
-          height={400}
-          className="pointer-events-none select-none"
+          width={2000}
+          height={2000}
+          className="pointer-events-none select-none w-[400px]"
           draggable={false}
         />
       </div>

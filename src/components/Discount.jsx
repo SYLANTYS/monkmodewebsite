@@ -63,7 +63,7 @@ export default function Discount() {
 
         <div className="mt-5 bg-black px-20 py-5 rounded-2xl">
           <p className="text-2xl font-bold text-white">
-            Only $1.25{" "}
+            Only ($1.25){" "}
             <span className="text-blue-300 font-medium">/ month</span>
           </p>
         </div>
