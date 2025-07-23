@@ -4,9 +4,9 @@ import { stripe } from "@/lib/stripe";
 
 export const subscribeAction = async ({ id, email, product }) => {
   const prices = [
-    "price_1RlEiaQwZPNYyBC6TTHtH6yI",
-    "price_1RlEh5QwZPNYyBC6i9Djgc9X",
-    "price_1RlEjMQwZPNYyBC6Tw319P5G",
+    "price_1Ro4EDJZXyiCiyglxuirFudv",
+    "price_1Ro4DqJZXyiCiygljLXGEvlg",
+    "price_1Ro4EgJZXyiCiygl17Z1t6y2",
   ];
 
   const { url } = await stripe.checkout.sessions.create({
