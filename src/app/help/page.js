@@ -73,7 +73,7 @@ export default function HelpPage() {
           </h2>
           <p>
             To use your own OpenAI or LLM key, click the gear icon under
-            “Projects” in the app and choose your LLM. You’ll be prompted to
+            “Projects” in the app and choose your LLM. You'll be prompted to
             paste your key. These keys are saved securely on your device (in
             your local `.env` file) and never uploaded.
           </p>
