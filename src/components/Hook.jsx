@@ -35,7 +35,7 @@ export default function Hook() {
           <ArrowRightIcon
             size={48}
             weight="bold"
-            className="rotate-90 lg:hidden -mt-12"
+            className="rotate-90 lg:hidden my-2"
           />
         </div>
 
