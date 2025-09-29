@@ -6,8 +6,8 @@ import Image from "next/image";
 
 const steps = [
   {
-    title: "Think Visually, Stay Grounded",
-    text: "Capture ideas, tasks, or goals directly in your canvas. Every thought is linked to a persistent AI thread you can revisit, expand, or connect later.",
+    title: "Think Visually in a Canvas",
+    text: "Capture ideas, tasks, or goals directly in your project. Every thought is linked to a persistent AI thread you can revisit, expand, or connect later.",
     image: "/images/relationships.png",
   },
   {
@@ -17,12 +17,12 @@ const steps = [
   },
   {
     title: "Capture Meaning, Not Just Messages",
-    text: "Attach context—explanations, relationships, and key takeaways that live alongside your threads. Connect ideas and build structure around your thinking.",
+    text: "Notes can show relationships, summaries, and key takeaways from your chat, staying linked to your threads in both chat and canvas views to build a connected structure around your thinking.",
     image: "/images/expandednotechat.png",
   },
   {
     title: "Offline or Hybrid, Your Choice",
-    text: "Stay off-the-grid with local LLMs or plug in API keys for GPT-4, Claude, and more. MonkMode adapts to your privacy and performance needs.",
+    text: "Stay off-the-grid with default Ollama LLMs or plug in API keys for GPT-4, Claude, and more. MonkMode adapts to your privacy and performance needs.",
     image: "/images/llmshowcase.png",
   },
 ];

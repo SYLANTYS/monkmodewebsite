@@ -7,7 +7,7 @@ export default function UncensoredLLMsSection() {
       className="py-20 pb-30 text-white text-center \
       bg-radial-[at_45%_90%] from-zinc-500 to-black to-75%"
     >
-      <h3 className="text-4xl mb-8">New: Uncensored LLMs</h3>
+      <h3 className="text-4xl mb-8">New Uncensored LLMs</h3>
       <p className="max-w-xl mx-auto mb-20 text-lg">
         Run powerful models like Dolphin and Mixtral directly through MonkMode
         to unlock their full capabilities without restrictions.

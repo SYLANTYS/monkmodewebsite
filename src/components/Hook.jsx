@@ -12,8 +12,8 @@ export default function Hook() {
     >
       <h2 className="text-5xl font-bold mb-4">Think Better. Focus Deeper.</h2>
       <p className="max-w-xl mx-auto mb-6 text-lg">
-        MonkMode is your canvas-first offline AI workspace. Organize thoughts,
-        analyze data, and run local LLMs—all without the cloud.
+        MonkMode is your visual AI workspace that works offline. Organize
+        thoughts, analyze data, and run local LLMs—even in airplane mode.
       </p>
       <div className="flex justify-center">
         <DownloadButton scale="scale-125" />

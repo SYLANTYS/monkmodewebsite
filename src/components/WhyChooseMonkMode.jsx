@@ -28,12 +28,12 @@ export default function WhyChooseMonkMode() {
         <ReasonCard
           icon={LinkSimpleIcon}
           title="Connect the Tools You Already Use"
-          desc="Plug in your own API keys for GPT-4, Claude, or others—or stay fully offline with uncensored local models. MonkMode adapts to your workflow, whether you're researching, journaling, or building complex systems."
+          desc="Plug in your own API keys for GPT-4, Claude, or others—or stay fully offline with unrestricted local models. MonkMode adapts to your workflow, whether you're researching, journaling, or building complex systems."
         />
         <ReasonCard
           icon={BrainIcon}
           title="Think Deeper, Stay in Flow"
-          desc="With a canvas-first interface and persistent chat threads, MonkMode keeps your thoughts visible, connected, and structured. Use embedded notes to map relationships, document meaning, and develop long-term ideas—all without breaking focus."
+          desc="With a canvas-first interface and persistent chat threads, MonkMode keeps your thoughts visible, connected, and structured. Use linked notes to map relationships, document meaning, and develop long-term ideas—all without breaking focus."
         />
       </div>
     </section>
