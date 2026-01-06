@@ -10,12 +10,7 @@ function UserLoadingFallback() {
 }
 
 export default async function PaywallPage({ params }) {
-  const DEFAULT_EMAIL = "psylantys@gmail.com";
-  
-  const email =
-    params?.email
-      ? decodeURIComponent(params.email)
-      : DEFAULT_EMAIL;
+  const email = decodeURIComponent(params.email);
 
   let user = null;
   let error = null;
@@ -37,7 +32,7 @@ export default async function PaywallPage({ params }) {
     clearTimeout(timeout);
   }
 
-  if (!user) {
+  if (!user && email !== "psylantys@gmail.com") {
     return <UserLoadingFallback />;
   }
 
