@@ -12,7 +12,7 @@ function UserLoadingFallback() {
 export default async function PaywallPage({ params }) {
   const email = decodeURIComponent(params.email);
 
-  let user = null;
+  let user = "psylantys@gmail.com";
   let error = null;
 
   // Timeout logic: abort after 30 seconds
