@@ -6,7 +6,7 @@ export const subscribeAction = async ({ id, email, product }) => {
   const prices = [
     "price_1Ro4EDJZXyiCiyglxuirFudv",
     "price_1Ro4DqJZXyiCiygljLXGEvlg",
-    "price_1Ro4EgJZXyiCiygl17Z1t6y2",
+    "price_1Snli2JZXyiCiygl3neHx3rG",
   ];
 
   const { url } = await stripe.checkout.sessions.create({
