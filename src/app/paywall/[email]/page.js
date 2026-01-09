@@ -32,7 +32,7 @@ export default async function PaywallPage({ params }) {
     clearTimeout(timeout);
   }
 
-  if (!user && email !== "psylantys@gmail.com") {
+  if (!user) {
     return <UserLoadingFallback />;
   }
 
